@@ -1,12 +1,62 @@
 @import 'fonts';
 @import 'colors';
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-body{
-    background-color: $primaryBackground;
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background-color: $primaryBackground;
+}
+
+.container {
+	max-height: 800px;
+	width: 375px;
+	overflow: hidden;
+	border-radius: 15px;
+	background-color: $white;
+}
+.product {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: 1fr 1fr 2fr 3fr 2fr 2fr;
+	&__preview {
+		grid-row: 1/2;
+		grid-column: 1/-1;
+		object-fit: cover;
+		height: 5rem;
+	}
+	&__type {
+		grid-row: 2/3;
+		grid-column: 2/4;
+	}
+	&__name {
+		grid-row: 3/4;
+		grid-column: 2/6;
+	}
+	&__description {
+		grid-row: 4/5;
+		grid-column: 2/6;
+	}
+
+	&__price {
+		&__actual {
+			grid-row: 5/6;
+			grid-column: 2/4;
+		}
+		&__reduced {
+			grid-row: 5/6;
+			grid-column: 4/5;
+		}
+	}
+	&__button {
+		grid-row: 6/7;
+		grid-column: 2/6;
+	}
 }
